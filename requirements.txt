@@ -1,0 +1,19 @@
+peft==0.11.1
+#transformers==4.41.2
+#bitsandbytes==0.43.1
+nltk==3.8.1
+
+### precisa instalar: sudo apt-get install graphviz
+torchviz==0.0.2
+
+# com cuda mais novo:
+scipy==1.14.1
+transformers==4.47.0
+bitsandbytes==0.43.2
+
+# essa biblioteca precisa para calcular as distâncias mmd (incluido depois)
+sentence-transformers==3.4.1
+
+# essa biblioteca é plotar o grafo uda das distribuições
+matplotlib==3.10.0
+umap-learn==0.5.7
