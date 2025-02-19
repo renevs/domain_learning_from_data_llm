@@ -4,11 +4,11 @@ This repository is the official repository to ``Domain Learning from Data for La
 
 ## Datasets
 
-/datasets - contain the source and target dataset
+/datasets - contain the source and target datasets
 
 ## How to install
 
-After download the code, you must to download the LLAMA 8B-Instruct to the folder Meta-Llama-3-8B-Instruct.
+After download the code, you must download the LLAMA 8B-Instruct to the folder Meta-Llama-3-8B-Instruct.
 
 Create python environment and set dependencies running:
 install.sh
