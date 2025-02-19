@@ -90,7 +90,7 @@ def print_latex_table( bases_src, bases_dst, modelos_bases, intermediate_domains
                 for final_domain in final_domains_map[model]:
                     if intermediate_domain != final_domain or final_domain is None:
                         if final_domain is None:
-                            print( f"LLAMA 7B", end="" )
+                            print( f"LLAMA 8B", end="" )
                         else:
                             print( f"{bases_list_as_string(  intermediate_domain )}/{final_domain}", end="" )
                         for src_name in bases_src:
