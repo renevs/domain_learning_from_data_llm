@@ -821,8 +821,14 @@ def main(local_rank: int,global_rank: int, world_size: int, save_every: int, tot
     print('*********************************************************************************', flush=True)
 
     torch.manual_seed(random_seed)
+    torch.cuda.manual_seed_all(random_seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
     np.random.seed(random_seed)
     random.seed(random_seed)
+
+    g = torch.Generator()
+    g.manual_seed(random_seed)
 
     if global_rank == -1:
         global_rank = local_rank
@@ -961,7 +967,7 @@ if __name__ == "__main__":
         # 'restaurant':'./datasets/src/rest_test_frases.txt',
         # 'financial':'./datasets/src/SEnFIN11_test_frases.txt',
         'financial_pt':'./datasets/dst/frases_financeiro_pt.txt',
-        'reddit_games':'./datasets/dst/posts_unicos_geral.txt'
+        'reddit_games':'./datasets/dst/frases_reddit_games.txt'
     }
     bases_src = ['laptop']
     bases_dst = ['reddit_games']
@@ -969,7 +975,7 @@ if __name__ == "__main__":
     final_domains = ['movie','portuguese','games','games in portuguese']
 
 
-    seeds = [42]
+    seeds = [98]
     for s in seeds:
         for src_name in bases_src:
             source_file = bases[src_name]
@@ -995,7 +1001,7 @@ if __name__ == "__main__":
     final_domains = ['movie','portuguese','financial','financial in portuguese']
 
 
-    seeds = [42]
+    seeds = []  #### IMPORTANT: MUST PROVIDE SEEDS
     for s in seeds:
         for src_name in bases_src:
             source_file = bases[src_name]
@@ -1014,4 +1020,3 @@ if __name__ == "__main__":
                                 main( local_rank, global_rank, world_size, args.save_every, args.total_epochs, args.batch_size, s, source_file, target_file, intermediate_domain, final_domain, model_name )
                                 print(f"Terminou main com seed={s} source={source_file} target={target_file} intermediate={intermediate_domain} final={final_domain}")
 
-    # main( local_rank, global_rank, world_size, args.save_every, args.total_epochs, args.batch_size, args.random_seed, args.output_file, args.source_file, args.target_file )
