@@ -975,7 +975,7 @@ if __name__ == "__main__":
     final_domains = ['movie','portuguese','games','games in portuguese']
 
 
-    seeds = [98]
+    seeds = [13]
     for s in seeds:
         for src_name in bases_src:
             source_file = bases[src_name]
@@ -1001,7 +1001,7 @@ if __name__ == "__main__":
     final_domains = ['movie','portuguese','financial','financial in portuguese']
 
 
-    seeds = []  #### IMPORTANT: MUST PROVIDE SEEDS
+    seeds = [13]  #### IMPORTANT: MUST PROVIDE SEEDS
     for s in seeds:
         for src_name in bases_src:
             source_file = bases[src_name]
