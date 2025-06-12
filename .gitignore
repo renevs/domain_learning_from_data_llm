@@ -1,4 +1,4 @@
 Meta-Llama-3-8B-Instruct**
-*.txt
+./*.txt
 *.pt
 nohup.out
