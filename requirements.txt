@@ -17,3 +17,5 @@ sentence-transformers==3.4.1
 # essa biblioteca é plotar o grafo uda das distribuições
 matplotlib==3.10.0
 umap-learn==0.5.7
+
+spacy==3.8.7
