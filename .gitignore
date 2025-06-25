@@ -2,3 +2,4 @@ Meta-Llama-3-8B-Instruct**
 ./*.txt
 *.pt
 nohup.out
+trash/

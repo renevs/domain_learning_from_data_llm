@@ -503,7 +503,7 @@ if __name__ == "__main__":
                 for final_domain in final_domains:
                     gc.collect()
                     torch.cuda.empty_cache()
-                    target_file = f"results/bases_geradas/convert_{src_name}_to_{model}__llama__final_{final_domain.replace('/','_').replace(' ','_')}__seed_{s}.txt"
+                    target_file = f"results/generated_datasets/convert_{src_name}_to_{model}__llama__final_{final_domain.replace('/','_').replace(' ','_')}__seed_{s}.txt"
                     print("*****************************************")
                     print(f"Arquivo: {target_file}")
                     main( local_rank, global_rank, world_size, args.batch_size, args.random_seed, None, source_file, target_file, final_domain )
@@ -526,7 +526,7 @@ if __name__ == "__main__":
                             gc.collect()
                             torch.cuda.empty_cache()
                             model_file = f"final_models/convert_laptop_to_{model}__intermediate_{remove_bar_list(intermediate_domain)}__final_{final_domain.replace('/','_').replace(' ','_')}__seed_{s}.pt"
-                            target_file = f"results/bases_geradas/convert_{src_name}_to_{model}__intermediate_{remove_bar_list(intermediate_domain)}__final_{final_domain.replace('/','_').replace(' ','_')}__seed_{s}.txt"
+                            target_file = f"results/generated_datasets/convert_{src_name}_to_{model}__intermediate_{remove_bar_list(intermediate_domain)}__final_{final_domain.replace('/','_').replace(' ','_')}__seed_{s}.txt"
                             print("*****************************************")
                             print( f"Modelo: {model_file}")
                             print(f"Arquivo: {target_file}")

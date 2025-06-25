@@ -24,4 +24,11 @@ The code must be runned in this sequence:
 
     /results/generated_datasets
 
-* calculate_statistics.py - calcula as estatísticas das bases geradas e compara com llama e as frases antes da transformação
+* compare_datasets.py - Calculates the statistics of the generated datasets and compares them with LLAMA and the sentences before the transformation.
+
+For qualitative analysis:
+* call_serveral_times_llm.py - call llm to compare adapted sentences
+* compare_llm_results.pt / compare_llm_results_letters - put in a table the llm answers
+
+For interpretation:
+* interpretable_prompt.py - explain the learned domain

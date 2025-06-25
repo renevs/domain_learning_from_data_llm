@@ -420,13 +420,60 @@ def main( local_rank, global_rank, world_size, random_seed, model_file, final_do
     if model_file:
         _load_checkpoint( model_file, phrase_gen )
 
-    message_part1 = """Rewriteen the command below to be more legible. The command is between brackets.
+#     message_part1 = """Rewriteen the command below to be more legible. The command is between brackets.
+
+# ************** START OF THE COMMAND **************
+# [Adapt the text below to the domain / language: .
+# This pizza is wonderful!"""
+
+#     message_part1 = """Rewrite the command below to be more legible and interpretable. Be your best to adapt the embedding representing the domain and language. The command is between brackets.
+
+# ************** START OF THE COMMAND **************
+# [Adapt and translate the text below to the domain / language: """
+#     message_part2 = """
+# This pizza is wonderful!]
+# ************** END OF THE COMMAND **************"""
+
+
+#     message_part1 = """Rewrite the the command below to be more legible and interpretable. Be your best to adapt the embedding representing the domain and language. You can use many words to describe the domain and language. The command is between brackets.
+
+# ************** START OF THE COMMAND **************
+# [Adapt and translate the text to the domain / language: """
+#     message_part2 = """]
+# ************** END OF THE COMMAND **************"""
+
+
+#     message_part1 = """Rewrite the the command below to be more legible and interpretable. Be your best to adapt the embedding representing the register, syntax, function, topic and language. You can use many words to describe the register, syntax, function, topic and language. The command is between brackets.
+
+# ************** START OF THE COMMAND **************
+# [Adapt and translate the text to the register, syntax, function, topic and language: """
+#     message_part2 = """]
+# ************** END OF THE COMMAND **************"""
+
+#     message_part1 = """Rewrite the the command below to be more legible and interpretable. Be your best to adapt the embedding representing the register, syntax, function, topic and language. You can use many words to describe the register, syntax, function, topic and language.
+
+# ************** START OF THE COMMAND **************
+# \"\"\"Adapt and translate the text to the register, syntax, function, topic and language: """
+#     message_part2 = """\"\"\""
+# ************** END OF THE COMMAND **************"""
+
+
+    message_part1 = """Rewrite the the command below, which is between brackets, to be more legible and interpretable. Be your best to adapt the embedding representing the register, syntax, function, topic and target language. You can use many words to describe the register, syntax, function, topic and target language. The command is between brackets. BE VERY CAREFUL AND VERY, VERY, VERY DETAILED WITH DOMAIN.
 
 ************** START OF THE COMMAND **************
-[Adapt the text below to the domain / language: .
-This pizza is wonderful!"""
-    message_part2 = """]
+\"\"\"[Adapt (register, syntax, function and topic) and translate the text using the domain/language: """
+    message_part2 = """]\"\"\""
 ************** END OF THE COMMAND **************"""
+
+
+#     message_part1 = """Interpretable command activity. I am trying to interpretate the command. Rewrite the command below to be more legible. Do your best. The command is between brackets.
+
+# ************** START OF THE COMMAND **************
+# [Adapt and translate the text below to the domain / language: .
+# This pizza is wonderful!"""
+
+#     message_part2 = """]
+# ************** END OF THE COMMAND **************"""
 
     message_part1_ids = phrase_gen.tokenizer.encode( message_part1 )   
     inputs_embeds_part1 = phrase_gen.weights_values[ message_part1_ids ]  
@@ -491,7 +538,12 @@ if __name__ == "__main__":
 
     print( f"Total Devices available: {torch.cuda.device_count()}", flush=True )
 
-    model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_financial__seed_13.pt"
-    final_domain='financial'
+    # model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_financial__seed_13.pt"
+    # model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_movie__seed_13.pt"
+    # model_file = f"../../interpretable_prompt/results/final_models/convert_laptop_to_reddit_games__intermediate_sport_in_german__final_games_in_portuguese__seed_42.pt"
+    model_file = f"../../interpretable_prompt/results/final_models/convert_laptop_to_reddit_games__intermediate_sport_in_german__final_movie__seed_42.pt"
+    # final_domain='financial'
+    # final_domain='games in portuguese'
+    final_domain='movie'
     main( local_rank, global_rank, world_size, args.random_seed, model_file, final_domain )
 
