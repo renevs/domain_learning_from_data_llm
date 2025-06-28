@@ -539,9 +539,9 @@ if __name__ == "__main__":
     print( f"Total Devices available: {torch.cuda.device_count()}", flush=True )
 
     # model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_financial__seed_13.pt"
-    # model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_movie__seed_13.pt"
+    model_file = f"final_models/convert_laptop_to_financial_pt__intermediate_sport_in_german__final_movie__seed_13.pt"
     # model_file = f"../../interpretable_prompt/results/final_models/convert_laptop_to_reddit_games__intermediate_sport_in_german__final_games_in_portuguese__seed_42.pt"
-    model_file = f"../../interpretable_prompt/results/final_models/convert_laptop_to_reddit_games__intermediate_sport_in_german__final_movie__seed_42.pt"
+    # model_file = f"../../interpretable_prompt/results/final_models/convert_laptop_to_reddit_games__intermediate_sport_in_german__final_movie__seed_42.pt"
     # final_domain='financial'
     # final_domain='games in portuguese'
     final_domain='movie'
